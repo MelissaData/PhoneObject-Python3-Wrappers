@@ -13,7 +13,7 @@ For further details, please visit: https://wiki.melissadata.com/images/5/53/DQT_
 ## Tested Environments
 
 - Windows 10 64-bit Python 3.8.7
-- Melissa Phone Object for 2023-05
+- Melissa Phone Object for 2023-07
 
 ## Getting Started
 
