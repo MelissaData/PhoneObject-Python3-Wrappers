@@ -12,14 +12,14 @@ For further details, please visit: https://wiki.melissadata.com/images/5/53/DQT_
 
 ## Tested Environments
 
-- Windows 10 64-bit Python 3.8.7
-- Melissa Phone Object for 2023-07
+- Windows 64-bit Python 3.8.7
+- Melissa Phone Object for 2023-08
 
 ## Getting Started
 
 ### Download this project
 ```
-$ git clone https://github.com/MelissaData/PhoneObject-Python3-Wrappers.git
+$ git clone https://github.com/MelissaData/PhoneObject-Python3-Wrappers
 $ cd PhoneObject-Python3-Wrappers
 ```
 
