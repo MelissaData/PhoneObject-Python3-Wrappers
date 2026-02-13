@@ -6,23 +6,23 @@ This is the code for you to run Phone Object in Python3.
     
 Please feel free to copy or embed this code to your own project. Happy coding!
 
-For latest Melissa Phone Object release notes, please visit: https://releasenotes.melissa.com/on-premise-api/phone-object/
+To view the latest Melissa Phone Object release notes or to subscribe to product notifications, please visit: https://releasenotes.melissa.com/on-premise-api/phone-object/
 
 For further details, please visit: https://wiki.melissadata.com/images/5/53/DQT_API_Phone_RG.pdf
 
 ## Tested Environments
 
-- Windows 10 64-bit Python 3.8.7, Powershell 5.1
+- Windows 11 64-bit Python 3.8.7, Powershell 5.1
 - Linux 64-bit Python 3.8.7, Ubuntu 20.04.05 LTS
-- Melissa Phone Object for 2026-01
+- Melissa Phone Object for 2026-02
 - Wrapper file(s) have not changed since 2023-08
 
 ## Getting Started
 
 ### Download this project
 ```
-git clone https://github.com/MelissaData/PhoneObject-Python3-Wrappers
-cd PhoneObject-Python3-Wrappers
+git clone https://git.melissadata.com/dtgroup/melissadataobjectexamples/python3/melissaphoneobjectpython3wrappers
+cd melissaphoneobjectpython3wrappers
 ```
 
 ### Copy wrappers to your project folder
