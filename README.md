@@ -21,8 +21,8 @@ For further details, please visit: https://wiki.melissadata.com/images/5/53/DQT_
 
 ### Download this project
 ```
-git clone https://git.melissadata.com/dtgroup/melissadataobjectexamples/python3/melissaphoneobjectpython3wrappers
-cd melissaphoneobjectpython3wrappers
+git clone https://github.com/MelissaData/PhoneObject-Python3-Wrappers
+cd PhoneObject-Python3-Wrappers
 ```
 
 ### Copy wrappers to your project folder
