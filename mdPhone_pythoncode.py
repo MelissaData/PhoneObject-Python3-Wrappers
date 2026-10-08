@@ -130,8 +130,9 @@ lib.mdGlobalPhoneGetResults.argtypes = [c_void_p]
 lib.mdGlobalPhoneGetResults.restype = c_char_p
 lib.mdGlobalPhoneGetResultCodeDescription.argtypes = [c_void_p, c_char_p, c_int]
 lib.mdGlobalPhoneGetResultCodeDescription.restype = c_char_p
+lib.mdGlobalPhoneGetPhoneType.argtypes = [c_void_p]
+lib.mdGlobalPhoneGetPhoneType.restype = c_char_p
 
-# mdPhone Enumerations
 class ProgramStatus(Enum):
 	ErrorNone = 0
 	ErrorOther = 1
@@ -141,42 +142,9 @@ class ProgramStatus(Enum):
 	ErrorDatabaseExpired = 5
 	ErrorLicenseExpired = 6
 
-class AccessType(Enum):
-	Local = 0
-	Remote = 1
-
-class DiacriticsMode(Enum):
-	Auto = 0
-	On = 1
-	Off = 2
-
-class StandardizeMode(Enum):
-	ShortFormat = 0
-	LongFormat = 1
-	AutoFormat = 2
-
-class SuiteParseMode(Enum):
-	ParseSuite = 0
-	CombineSuite = 1
-
-class AliasPreserveMode(Enum):
-	ConvertAlias = 0
-	PreserveAlias = 1
-
-class AutoCompletionMode(Enum):
-	AutoCompleteSingleSuite = 0
-	AutoCompleteRangedSuite = 1
-	AutoCompletePlaceHolderSuite = 2
-	AutoCompleteNoSuite = 3
-
 class ResultCdDescOpt(Enum):
 	ResultCodeDescriptionLong = 0
 	ResultCodeDescriptionShort = 1
-
-class MailboxLookupMode(Enum):
-	MailboxNone = 0
-	MailboxExpress = 1
-	MailboxPremium = 2
 
 class mdPhone(object):
 	def __init__(self):
@@ -210,10 +178,10 @@ class mdPhone(object):
 		return lib.mdPhoneCorrectAreaCode(self.I, (phone or '').encode('utf-8'), (zip or '').encode('utf-8'))
 
 	def ComputeDistance(self, p1, p2, p3, p4):
-		return lib.mdPhoneComputeDistance(self.I)
+		return lib.mdPhoneComputeDistance(self.I, p1, p2, p3, p4)
 
 	def ComputeBearing(self, p1, p2, p3, p4):
-		return lib.mdPhoneComputeBearing(self.I)
+		return lib.mdPhoneComputeBearing(self.I, p1, p2, p3, p4)
 
 	def GetAreaCode(self):
 		return lib.mdPhoneGetAreaCode(self.I).decode('utf-8')
@@ -278,52 +246,6 @@ class mdPhone(object):
 	def GetErrorCode(self):
 		return lib.mdPhoneGetErrorCode(self.I).decode('utf-8')
 
-# mdGlobalPhone Enumerations
-class ProgramStatus(Enum):
-	ErrorNone = 0
-	ErrorOther = 1
-	ErrorOutOfMemory = 2
-	ErrorRequiredFileNotFound = 3
-	ErrorFoundOldFile = 4
-	ErrorDatabaseExpired = 5
-	ErrorLicenseExpired = 6
-
-class AccessType(Enum):
-	Local = 0
-	Remote = 1
-
-class DiacriticsMode(Enum):
-	Auto = 0
-	On = 1
-	Off = 2
-
-class StandardizeMode(Enum):
-	ShortFormat = 0
-	LongFormat = 1
-	AutoFormat = 2
-
-class SuiteParseMode(Enum):
-	ParseSuite = 0
-	CombineSuite = 1
-
-class AliasPreserveMode(Enum):
-	ConvertAlias = 0
-	PreserveAlias = 1
-
-class AutoCompletionMode(Enum):
-	AutoCompleteSingleSuite = 0
-	AutoCompleteRangedSuite = 1
-	AutoCompletePlaceHolderSuite = 2
-	AutoCompleteNoSuite = 3
-
-class ResultCdDescOpt(Enum):
-	ResultCodeDescriptionLong = 0
-	ResultCodeDescriptionShort = 1
-
-class MailboxLookupMode(Enum):
-	MailboxNone = 0
-	MailboxExpress = 1
-	MailboxPremium = 2
 
 class mdGlobalPhone(object):
 	def __init__(self):
@@ -403,3 +325,6 @@ class mdGlobalPhone(object):
 
 	def GetResultCodeDescription(self, resultCode, opt=0):
 		return lib.mdGlobalPhoneGetResultCodeDescription(self.I, (resultCode or '').encode('utf-8'), ResultCdDescOpt(opt).value).decode('utf-8')
+
+	def GetPhoneType(self):
+		return lib.mdGlobalPhoneGetPhoneType(self.I).decode('utf-8')
